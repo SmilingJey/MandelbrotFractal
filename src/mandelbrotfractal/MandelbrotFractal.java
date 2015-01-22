@@ -126,10 +126,10 @@ public class MandelbrotFractal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
-                .addComponent(jButtonZoomM, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(jButtonZoomM, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonZoomP)
+                .addComponent(jButtonZoomP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSave)
                 .addContainerGap())
@@ -187,22 +187,19 @@ public class MandelbrotFractal extends javax.swing.JFrame {
         drawingPanel.drawMandelborFractal();
     }//GEN-LAST:event_drawingPanelComponentResized
 
-    private void jComboBoxColorPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxColorPropertyChange
-     
-    }//GEN-LAST:event_jComboBoxColorPropertyChange
+    private void drawingPanelMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_drawingPanelMouseWheelMoved
 
-    private void jComboBoxColorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxColorMouseClicked
+    }//GEN-LAST:event_drawingPanelMouseWheelMoved
 
-    }//GEN-LAST:event_jComboBoxColorMouseClicked
-
-    private void jComboBoxColorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxColorItemStateChanged
-
-    }//GEN-LAST:event_jComboBoxColorItemStateChanged
-
-    private void jComboBoxColorPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxColorPopupMenuWillBecomeInvisible
-        drawingPanel.setColor(jComboBoxColor.getSelectedIndex());
+    private void jButtonZoomPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonZoomPMouseClicked
+        drawingPanel.ZoomIn(-1,-1);
         drawingPanel.drawMandelborFractal();
-    }//GEN-LAST:event_jComboBoxColorPopupMenuWillBecomeInvisible
+    }//GEN-LAST:event_jButtonZoomPMouseClicked
+
+    private void jButtonZoomMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonZoomMMouseClicked
+        drawingPanel.ZoomOut(-1,-1);
+        drawingPanel.drawMandelborFractal();
+    }//GEN-LAST:event_jButtonZoomMMouseClicked
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         BufferedImage outImg = new BufferedImage(drawingPanel.getWidth(), drawingPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -217,24 +214,27 @@ public class MandelbrotFractal extends javax.swing.JFrame {
             try{
                 ImageIO.write(outImg, "BMP", file);
             }catch (IOException e) {
-                
+
             }
         }
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
-    private void jButtonZoomMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonZoomMMouseClicked
-        drawingPanel.ZoomOut(-1,-1);
+    private void jComboBoxColorPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxColorPropertyChange
+
+    }//GEN-LAST:event_jComboBoxColorPropertyChange
+
+    private void jComboBoxColorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxColorItemStateChanged
+
+    }//GEN-LAST:event_jComboBoxColorItemStateChanged
+
+    private void jComboBoxColorPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxColorPopupMenuWillBecomeInvisible
+        drawingPanel.setColor(jComboBoxColor.getSelectedIndex());
         drawingPanel.drawMandelborFractal();
-    }//GEN-LAST:event_jButtonZoomMMouseClicked
+    }//GEN-LAST:event_jComboBoxColorPopupMenuWillBecomeInvisible
 
-    private void jButtonZoomPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonZoomPMouseClicked
-        drawingPanel.ZoomIn(-1,-1);
-        drawingPanel.drawMandelborFractal();
-    }//GEN-LAST:event_jButtonZoomPMouseClicked
+    private void jComboBoxColorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxColorMouseClicked
 
-    private void drawingPanelMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_drawingPanelMouseWheelMoved
-
-    }//GEN-LAST:event_drawingPanelMouseWheelMoved
+    }//GEN-LAST:event_jComboBoxColorMouseClicked
 
     /**
      * @param args the command line arguments
