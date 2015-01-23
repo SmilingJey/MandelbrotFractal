@@ -1,28 +1,15 @@
 package mandelbrotfractal;
 
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.awt.Toolkit;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 
 public class MandelbrotFractal extends javax.swing.JFrame {
 
-    
-    private int prewIterationsCount = 200;
-    /**
-     * Creates new form MandelbrotFractal
-     */
     public MandelbrotFractal() {
         initComponents();
-        
+
     }
 
     /**
@@ -59,11 +46,6 @@ public class MandelbrotFractal extends javax.swing.JFrame {
         ConfigPanel.setPreferredSize(new java.awt.Dimension(446, 50));
 
         jComboBoxColor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
-        jComboBoxColor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jComboBoxColorMouseClicked(evt);
-            }
-        });
         jComboBoxColor.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -71,16 +53,6 @@ public class MandelbrotFractal extends javax.swing.JFrame {
                 jComboBoxColorPopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-            }
-        });
-        jComboBoxColor.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxColorItemStateChanged(evt);
-            }
-        });
-        jComboBoxColor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jComboBoxColorPropertyChange(evt);
             }
         });
 
@@ -126,12 +98,12 @@ public class MandelbrotFractal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(jButtonZoomM, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(jButtonZoomM, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonZoomP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonZoomP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSave)
+                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         ConfigPanelLayout.setVerticalGroup(
@@ -151,22 +123,11 @@ public class MandelbrotFractal extends javax.swing.JFrame {
 
         getContentPane().add(ConfigPanel, java.awt.BorderLayout.PAGE_END);
 
-        drawingPanel.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
-            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-                drawingPanelMouseWheelMoved(evt);
-            }
-        });
-        drawingPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentResized(java.awt.event.ComponentEvent evt) {
-                drawingPanelComponentResized(evt);
-            }
-        });
-
         javax.swing.GroupLayout drawingPanelLayout = new javax.swing.GroupLayout(drawingPanel);
         drawingPanel.setLayout(drawingPanelLayout);
         drawingPanelLayout.setHorizontalGroup(
             drawingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 615, Short.MAX_VALUE)
         );
         drawingPanelLayout.setVerticalGroup(
             drawingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,63 +139,22 @@ public class MandelbrotFractal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void drawingPanelComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_drawingPanelComponentResized
-        drawingPanel.xmin=-2;
-        drawingPanel.ymin=-1;
-        drawingPanel.xmax=1;
-        drawingPanel.ymax=1;
-        drawingPanel.calcScale();
-        drawingPanel.drawMandelborFractal();
-    }//GEN-LAST:event_drawingPanelComponentResized
-
-    private void drawingPanelMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_drawingPanelMouseWheelMoved
-
-    }//GEN-LAST:event_drawingPanelMouseWheelMoved
-
     private void jButtonZoomPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonZoomPMouseClicked
-        drawingPanel.ZoomIn(-1,-1);
-        drawingPanel.drawMandelborFractal();
+        drawingPanel.ZoomIn(-1, -1);
     }//GEN-LAST:event_jButtonZoomPMouseClicked
 
     private void jButtonZoomMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonZoomMMouseClicked
-        drawingPanel.ZoomOut(-1,-1);
-        drawingPanel.drawMandelborFractal();
+        drawingPanel.ZoomOut(-1, -1);
     }//GEN-LAST:event_jButtonZoomMMouseClicked
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        BufferedImage outImg = new BufferedImage(drawingPanel.getWidth(), drawingPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
-        Graphics2D gr = outImg.createGraphics();
-        gr.drawImage(drawingPanel.buffer, 0,0,null);
-        String wd = System.getProperty("user.dir");
-        JFileChooser fc = new JFileChooser(wd);
-        File file = new File("image.bmp");
-        int rc = fc.showDialog(null, "Save image");
-        if (rc == JFileChooser.APPROVE_OPTION){
-            file = fc.getSelectedFile();
-            try{
-                ImageIO.write(outImg, "BMP", file);
-            }catch (IOException e) {
-
-            }
-        }
+        drawingPanel.savaImage();
     }//GEN-LAST:event_jButtonSaveActionPerformed
-
-    private void jComboBoxColorPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxColorPropertyChange
-
-    }//GEN-LAST:event_jComboBoxColorPropertyChange
-
-    private void jComboBoxColorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxColorItemStateChanged
-
-    }//GEN-LAST:event_jComboBoxColorItemStateChanged
 
     private void jComboBoxColorPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxColorPopupMenuWillBecomeInvisible
         drawingPanel.setColor(jComboBoxColor.getSelectedIndex());
         drawingPanel.drawMandelborFractal();
     }//GEN-LAST:event_jComboBoxColorPopupMenuWillBecomeInvisible
-
-    private void jComboBoxColorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxColorMouseClicked
-
-    }//GEN-LAST:event_jComboBoxColorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -250,6 +170,7 @@ public class MandelbrotFractal extends javax.swing.JFrame {
                 Dimension frameSize = frame.getSize();
                 frame.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
                 frame.setVisible(true);
+                frame.drawingPanel.setCoordinats(-2, -1, 1);
             }
         });
     }
